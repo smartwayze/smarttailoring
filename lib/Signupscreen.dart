@@ -113,7 +113,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 bottomRight: Radius.circular(20),
               ),
               child: Image.asset(
-                "assets/img6.jpg",
+                "assets/images/img6.jpg",
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),

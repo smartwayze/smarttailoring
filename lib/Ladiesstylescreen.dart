@@ -9,56 +9,56 @@ class LadiesStyleScreen extends StatelessWidget {
       {
         "name": "Casual Wear",
         "images": [
-          "assets/c1.jpg",
-          "assets/c2.jpg",
-          "assets/c3.jpg",
-          "assets/c4.jpg",
-          "assets/c5.jpg",
-          "assets/c6.jpg"
+          "assets/images/c1.jpg",
+          "assets/images/c2.jpg",
+          "assets/images/c3.jpg",
+          "assets/images/c4.jpg",
+          "assets/images/c5.jpg",
+          "assets/images/c6.jpg"
         ]
       },
       {
         "name": "Party Wear",
         "images": [
-          "assets/p1.jpg",
-          "assets/p2.jpg",
-          "assets/p3.jpg",
-          "assets/p4.jpg",
-          "assets/p5.jpg",
-          "assets/p6.jpg"
+          "assets/images/p1.jpg",
+          "assets/images/p2.jpg",
+          "assets/images/p3.jpg",
+          "assets/images/p4.jpg",
+          "assets/images/p5.jpg",
+          "assets/images/p6.jpg"
         ]
       },
       {
         "name": "Bridal Wear",
         "images": [
-          "assets/b1.jpg",
-          "assets/b2.jpg",
-          "assets/b3.jpg",
-          "assets/b4.jpg",
-          "assets/b5.jpg",
-          "assets/b6.jpg"
+          "assets/images/b1.jpg",
+          "assets/images/b2.jpg",
+          "assets/images/b3.jpg",
+          "assets/images/b4.jpg",
+          "assets/images/b5.jpg",
+          "assets/images/b6.jpg"
         ]
       },
       {
         "name": "Formal Wear",
         "images": [
-          "assets/f1.jpg",
-          "assets/f2.jpg",
-          "assets/f3.jpg",
-          "assets/f4.jpg",
-          "assets/f5.jpg",
-          "assets/f6.jpg"
+          "assets/images/f1.jpg",
+          "assets/images/f2.jpg",
+          "assets/images/f3.jpg",
+          "assets/images/f4.jpg",
+          "assets/images/f5.jpg",
+          "assets/images/f6.jpg"
         ]
       },
       {
         "name": "Ethnic Wear",
         "images": [
-          "assets/e1.jpg",
-          "assets/e2.jpg",
-          "assets/e3.jpg",
-          "assets/e4.jpg",
-          "assets/e5.jpg",
-          "assets/e6.jpg"
+          "assets/images/e1.jpg",
+          "assets/images/e2.jpg",
+          "assets/images/e3.jpg",
+          "assets/images/e4.jpg",
+          "assets/images/e5.jpg",
+          "assets/images/e6.jpg"
         ]
       },
     ];

@@ -100,7 +100,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             SlideTransition(
               position: _slideInAnimation,
               child: Image.asset(
-                'assets/pic2.png',
+                'assets/images/pic2.png',
                 width: 250,
                 height: 250,
                 errorBuilder: (context, error, stackTrace) {

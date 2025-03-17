@@ -106,7 +106,7 @@ class Homescreen extends StatelessWidget {
                           alignment: Alignment.bottomLeft,
                           children: [
                             Image.asset(
-                              'assets/clothes.jpg',
+                              'assets/images/clothes.jpg',
                               width: double.infinity,
                               height: 200,
                               fit: BoxFit.cover,
@@ -173,10 +173,10 @@ class Homescreen extends StatelessWidget {
                       mainAxisSpacing: 6,
                       childAspectRatio: 1.1,
                       children: [
-                        _buildCategory('Ladies', 'assets/Ladies.jpg', Colors.pinkAccent, context),
-                        _buildCategory('Gents', 'assets/gents.jpg', Colors.blueAccent, context),
-                        _buildCategory('Children', 'assets/children.jpg', Colors.orangeAccent, context),
-                        _buildCategory('Measurement', 'assets/measurement.jpg', Colors.greenAccent, context),
+                        _buildCategory('Ladies', 'assets/images/Ladies.jpg', Colors.pinkAccent, context),
+                        _buildCategory('Gents', 'assets/images/gents.jpg', Colors.blueAccent, context),
+                        _buildCategory('Children', 'assets/images/children.jpg', Colors.orangeAccent, context),
+                        _buildCategory('Measurement', 'assets/images/measurement.jpg', Colors.greenAccent, context),
                       ],
                     ),
                   ),

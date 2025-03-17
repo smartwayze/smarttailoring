@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
               height: screenHeight * 0.70, // Increased from 65% to 70%
               width: screenWidth,
               child: Image.asset(
-                'assets/pic1.jpg',
+                'assets/images/pic1.jpg',
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
                   return const Center(
