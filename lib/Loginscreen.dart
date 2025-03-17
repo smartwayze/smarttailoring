@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'Orderscreen.dart'; // Make sure to create this file with the OrderScreen widget.
+import 'Orderscreen.dart'; // Ensure this file exists for the OrderScreen widget.
 import 'Signupscreen.dart'; // Ensure this file exists for the signup screen.
+import 'package:firebase_core/firebase_core.dart'; // Firebase core to initialize Firebase
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,99 +13,88 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _isPasswordVisible = false;
-  bool _isLoading = false;
+  bool _isLoading = false; // To show the loading indicator while logging in
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
-  bool _obscurePassword = true; // Toggle password visibility
 
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp(); // Initialize Firebase
+  }
+
+  // Firebase login function
   login(String email, String password) async {
     if (email.isEmpty || password.isEmpty) {
       showDialogBox("Enter required fields");
     } else {
+      setState(() {
+        _isLoading = true; // Start loading
+      });
+
       try {
-        await FirebaseAuth.instance
-            .signInWithEmailAndPassword(email: email, password: password);
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => OrderScreen()));
-      } on FirebaseAuthException catch (ex) {
-        showDialogBox(ex.message ?? "An error occurred");
-      }
-    }
-  }
+        // Attempt to sign in with the provided email and password
+        UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
 
-  void showDialogBox(String text) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(text),
-            actions: [
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('OK'))
-            ],
-          );
-        });
-  }
-
-  // Email validation regex
-  bool _isValidEmail(String email) {
-    return RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$").hasMatch(email);
-  }
-
-  // Handle login
-  void _handleLogin() {
-    String email = emailcontroller.text.trim();
-    String password = passwordcontroller.text.trim();
-
-    if (!_isValidEmail(email)) {
-      _showDialog("Invalid Email", "Please enter a valid email address.");
-      return;
-    }
-
-    if (password.isEmpty) {
-      _showDialog("Invalid Password", "Password cannot be empty.");
-      return;
-    }
-
-    setState(() => _isLoading = true);
-
-    // Simulate backend authentication (replace with real logic)
-    Future.delayed(const Duration(seconds: 2), () {
-      setState(() => _isLoading = false);
-
-      // Example hardcoded check (replace with your actual backend authentication logic)
-      if (email == "test@example.com" && password == "password123") {
-        // Navigate to the OrderScreen on successful login
+        // Navigate to the OrderScreen after successful login
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => OrderScreen()),
         );
-      } else {
-        _showDialog("Login Failed", "Invalid email or password.");
+      } on FirebaseAuthException catch (ex) {
+        // Handling different Firebase error codes
+        print("Error Code: ${ex.code}"); // Detailed logging
+        print("Error Message: ${ex.message}");
+
+        if (ex.code == 'user-not-found') {
+          showDialogBox("Wrong Email", "The email you entered is not registered.");
+        } else if (ex.code == 'wrong-password') {
+          showDialogBox("Wrong Password", "The password you entered is incorrect.");
+        } else if (ex.code == 'invalid-email') {
+          showDialogBox("Invalid Email", "The email format is invalid.");
+        } else if (ex.code == 'expired-action-code') {
+          showDialogBox("Expired Code", "The action code has expired.");
+        } else {
+          showDialogBox( "Invalid credentials");
+        }
+      } catch (e) {
+        // Catch any other errors
+        showDialogBox("Unexpected Error", e.toString());
+      } finally {
+        setState(() {
+          _isLoading = false; // Stop loading after the process is complete
+        });
       }
-    });
+    }
   }
 
-  // Show an error dialog
-  void _showDialog(String title, String message) {
+  // Utility to show error dialogs
+  void showDialogBox(String title, [String? message]) {
     showDialog(
       context: context,
-      builder: (context) {
+      builder: (BuildContext context) {
         return AlertDialog(
           title: Text(title),
-          content: Text(message),
+          content: message != null ? Text(message) : null,
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("OK", style: TextStyle(color: Colors.pinkAccent)),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('OK'),
             ),
           ],
         );
       },
     );
+  }
+
+  // Utility to check if the email is in valid format
+  bool _isValidEmail(String email) {
+    return RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$").hasMatch(email);
   }
 
   @override
@@ -181,8 +171,19 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 50,
                           child: ElevatedButton(
                             onPressed: () {
-                              // Trigger login function when pressed
-                              login(emailcontroller.text, passwordcontroller.text);
+                              String email = emailcontroller.text.trim();
+                              String password = passwordcontroller.text.trim();
+
+                              if (!_isValidEmail(email)) {
+                                showDialogBox("Invalid Email", "Please enter a valid email address.");
+                                return;
+                              }
+                              if (password.isEmpty) {
+                                showDialogBox("Invalid Password", "Password cannot be empty.");
+                                return;
+                              }
+
+                              login(email, password); // Call login function
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.pinkAccent,
@@ -198,7 +199,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         Center(
                           child: TextButton(
                             onPressed: () {
-                              // Navigate to the sign-up screen
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) => SignupScreen()),

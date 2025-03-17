@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smarttailoring/LadiesStyleScreen.dart'; // Import the LadiesStyleScreen
 import 'package:smarttailoring/LoginScreen.dart'; // Import the LoginScreen
-import 'package:smarttailoring/SignupScreen.dart'; // Import the SignupScreen
+import 'package:smarttailoring/SignupScreen.dart';
+import 'package:smarttailoring/childstylescreen.dart'; // Import the SignupScreen
 
 class Homescreen extends StatelessWidget {
   @override
@@ -225,36 +226,36 @@ class Homescreen extends StatelessWidget {
 
                   // Rating Section
                   Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-    child: Container(
-    decoration: BoxDecoration(
-    color: Color(0xFFFFD1DC),
-    borderRadius: BorderRadius.circular(15),
-    boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
-    ),
-    child: Padding(
-    padding: EdgeInsets.all(16),
-    child: Row(
-    children: [
-    Icon(Icons.star, color: Colors.green, size: 30),
-    SizedBox(width: 10),
-    Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-    Text(
-    '4.8 (2.1k+)',
-    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-    ),
-    Text(
-    'Smart Tailoring Services',
-    style: TextStyle(color: Colors.grey, fontSize: 14),
-    ),
-    ],
-    ),
-    ],
-    ),
-    ),
-    ),
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFFFFD1DC),
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Row(
+                          children: [
+                            Icon(Icons.star, color: Colors.green, size: 30),
+                            SizedBox(width: 10),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '4.8 (2.1k+)',
+                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                ),
+                                Text(
+                                  'Smart Tailoring Services',
+                                  style: TextStyle(color: Colors.grey, fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -281,6 +282,12 @@ class Homescreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => LadiesStyleScreen()),
+          );
+        }
+        if (title == "Children") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => childstylescreen()),
           );
         }
       },
