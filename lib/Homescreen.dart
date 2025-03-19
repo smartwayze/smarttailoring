@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:smarttailoring/LadiesStyleScreen.dart'; // Import the LadiesStyleScreen
 import 'package:smarttailoring/LoginScreen.dart'; // Import the LoginScreen
 import 'package:smarttailoring/SignupScreen.dart';
-import 'package:smarttailoring/childstylescreen.dart'; // Import the SignupScreen
+import 'package:smarttailoring/childstylescreen.dart';
+
+import 'gentsstyle page.dart'; // Import the SignupScreen
 
 class Homescreen extends StatelessWidget {
   @override
@@ -282,6 +284,11 @@ class Homescreen extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => LadiesStyleScreen()),
+          );
+        } if (title == "Gents") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => gentsStyleScreen()),
           );
         }
         if (title == "Children") {

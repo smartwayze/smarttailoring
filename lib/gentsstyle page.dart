@@ -1,64 +1,54 @@
 import 'package:flutter/material.dart';
 
-class LadiesStyleScreen extends StatelessWidget {
-  const LadiesStyleScreen({super.key});
+class gentsStyleScreen extends StatelessWidget {
+  const gentsStyleScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> styles = [
+
       {
         "name": "Casual Wear",
         "images": [
-          "assets/images/c1.jpg",
-          "assets/images/c2.jpg",
-          "assets/images/c3.jpg",
-          "assets/images/c4.jpg",
-          "assets/images/c5.jpg",
-          "assets/images/c6.jpg"
+          "assets/mimages/mc1.jpeg",
+          "assets/mimages/mc2.jpeg",
+          "assets/mimages/mc3.jpeg",
+          "assets/mimages/mc4.jpeg",
+          "assets/mimages/mc5.jpeg",
+          "assets/mimages/mc6.jpeg"
         ]
       },
       {
         "name": "Party Wear",
         "images": [
-          "assets/images/p1.jpg",
-          "assets/images/p2.jpg",
-          "assets/images/p3.jpg",
-          "assets/images/p4.jpg",
-          "assets/images/p5.jpg",
-          "assets/images/p6.jpg"
+          "assets/mimages/mp1.jpeg",
+          "assets/mimages/mp2.jpeg",
+          "assets/mimages/mp3.jpeg",
+          "assets/mimages/mp4.jpeg",
+          "assets/mimages/mp5.jpeg",
+          "assets/mimages/mp6.jpeg"
         ]
       },
       {
-        "name": "Bridal Wear",
+        "name": "Shalwar Qameez",
         "images": [
-          "assets/images/b1.jpg",
-          "assets/images/b2.jpg",
-          "assets/images/b3.jpg",
-          "assets/images/b4.jpg",
-          "assets/images/b5.jpg",
-          "assets/images/b6.jpg"
+          "assets/mimages/msq1.jpeg",
+          "assets/mimages/msq2.jpeg",
+          "assets/mimages/msq3.jpeg",
+          "assets/mimages/msq4.jpeg",
+          "assets/mimages/msq5.jpeg",
+          "assets/mimages/msq6.jpeg"
         ]
       },
       {
         "name": "Formal Wear",
         "images": [
-          "assets/images/f1.jpg",
-          "assets/images/f2.jpg",
-          "assets/images/f3.jpg",
-          "assets/images/f4.jpg",
-          "assets/images/f5.jpg",
-          "assets/images/f6.jpg"
-        ]
-      },
-      {
-        "name": "Ethnic Wear",
-        "images": [
-          "assets/images/e1.jpg",
-          "assets/images/e2.jpg",
-          "assets/images/e3.jpg",
-          "assets/images/e4.jpg",
-          "assets/images/e5.jpg",
-          "assets/images/e6.jpg"
+          "assets/mimages/mfw1.jpeg",
+          "assets/mimages/mfw2.jpeg",
+          "assets/mimages/mfw3.jpeg",
+          "assets/mimages/mfw4.jpeg",
+          "assets/mimages/mfw5.jpeg",
+          "assets/mimages/mfw6.jpeg"
         ]
       },
 
@@ -80,7 +70,7 @@ class LadiesStyleScreen extends StatelessWidget {
             title: const Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Ladies Style",
+                "Gents Style",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
