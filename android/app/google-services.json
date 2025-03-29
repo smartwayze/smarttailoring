@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "28662965087",
+    "project_id": "smarttailoring1-eb9df",
+    "storage_bucket": "smarttailoring1-eb9df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28662965087:android:ff0accea44da86b1e40cea",
+        "android_client_info": {
+          "package_name": "com.example.smarttailoring"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_Yo2ktohHot_Qb2o99xDNicT8dYISEEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smarttailoring/LadiesStyleScreen.dart'; // Import the LadiesStyleScreen
 import 'package:smarttailoring/LoginScreen.dart'; // Import the LoginScreen
+import 'package:smarttailoring/Measurment.dart';
 import 'package:smarttailoring/SignupScreen.dart';
 import 'package:smarttailoring/childstylescreen.dart';
 
@@ -297,18 +298,25 @@ class Homescreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => childstylescreen()),
           );
         }
+        if (title == "Measurement") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MeasurementForm()),
+          );
+        }
       },
       child: Padding(
         padding: EdgeInsets.all(6),
         child: Container(
-          height: 140,
+
+          height: 110,
           decoration: BoxDecoration(
             color: bgColor,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)],
             image: DecorationImage(
               image: AssetImage(imagePath),
-              fit: title == "Measurement" ? BoxFit.fitHeight : BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
           alignment: Alignment.bottomLeft,
