@@ -158,61 +158,63 @@ class _MeasurementFormState extends State<MeasurementForm> {
 
   Widget buildTextFieldWithToggle(String label, String hint,
       TextEditingController controller, String selectedUnit, List<String> units, Function(String) onUnitChange) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(label, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 5),
-        Row(
-          children: [
-            Expanded(
-              flex: 2,
-              child: TextField(
-                controller: controller,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  hintText: hint,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: Colors.black, width: 2),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 5),
+          Row(
+            children: [
+              Expanded(
+                flex: 2,
+                child: TextField(
+                  controller: controller,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    hintText: hint,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.black),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: const BorderSide(color: Colors.black, width: 2),
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              flex: 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: units.map((unit) {
-                  return GestureDetector(
-                    onTap: () => onUnitChange(unit),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: selectedUnit == unit ? Colors.pinkAccent : Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.pinkAccent),
-                      ),
-                      child: Text(
-                        unit,
-                        style: TextStyle(
-                          color: selectedUnit == unit ? Colors.white : Colors.black,
-                          fontWeight: FontWeight.bold,
+              const SizedBox(width: 10),
+              Expanded(
+                flex: 1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: units.map((unit) {
+                    return GestureDetector(
+                      onTap: () => onUnitChange(unit),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: selectedUnit == unit ? Colors.pinkAccent : Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.pinkAccent),
+                        ),
+                        child: Text(
+                          unit,
+                          style: TextStyle(
+                            color: selectedUnit == unit ? Colors.white : Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                }).toList(),
-              ),
-            )
-          ],
-        ),
-      ],
+                    );
+                  }).toList(),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
     );
   }
 
